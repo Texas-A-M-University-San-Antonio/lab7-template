@@ -135,7 +135,7 @@ Write a program that accepts **two city names** from the user and prints them in
 4. **Prompt** the user to enter the first city name
 5. **Prompt** the user to enter the second city name
 6. **Compare** the two cities using `compareToIgnoreCase()`
-   - *Hint:* Check if the result is less than 0, equal to 0, or greater than 0
+   
 7. **Print** the cities in alphabetical order
    - If city1 comes before city2, print city1 first, then city2
    - Otherwise, print city2 first, then city1
@@ -231,18 +231,11 @@ At the top of your file, include a comment block summarizing:
 - The date
 - The purpose of the program (sorting three cities alphabetically)
 
-```java
-/**
- * Name: [Your Name]
- * Date: [Today's Date]
- * Purpose: Sort three city names in alphabetical order using string comparison
- */
-```
+
+
 
 #### Step 3: Import Scanner (2 points)
-```java
-import java.util.Scanner;
-```
+
 
 #### Step 4: Declare Variables (5 points)
 You will need variables to store the three city names. You may also find it helpful to declare variables for comparison results or boolean values, though this is optional.
@@ -257,17 +250,6 @@ You will need variables to store the three city names. You may also find it help
 #### Step 5: Create Scanner and Prompt for Cities (9 points total - 3 per city)
 Create a Scanner object and prompt the user to enter three city names:
 
-```java
-Scanner input = new Scanner(System.in);
-System.out.print("Enter the first city: ");
-// Read the first city...
-
-System.out.print("Enter the second city: ");
-// Read the second city...
-
-System.out.print("Enter the third city: ");
-// Read the third city...
-```
 
 **Important:** Use the appropriate Scanner method to read **entire city names** including spaces (like "San Antonio" or "New York").
 
@@ -276,39 +258,17 @@ System.out.print("Enter the third city: ");
 #### Step 6: Compare and Sort the Cities (84 points)
 This is the heart of the assignment! You need to determine the alphabetical order and print the cities accordingly.
 
-**Your program must handle all six possible orderings:**
-1. city1 ≤ city2 ≤ city3 → Print: city1, city2, city3
-2. city1 ≤ city3 ≤ city2 → Print: city1, city3, city2
-3. city2 ≤ city1 ≤ city3 → Print: city2, city1, city3
-4. city2 ≤ city3 ≤ city1 → Print: city2, city3, city1
-5. city3 ≤ city1 ≤ city2 → Print: city3, city1, city2
-6. city3 ≤ city2 ≤ city1 → Print: city3, city2, city1
+**Your program must handle all six possible orderings.**
 
 **Each correct ordering is worth 14 points.**
 
-**Approach:**
-Use nested `if-else` statements with comparison methods to determine which city comes first, second, and third.
-
-**Strategy example:** 
-- First, determine which city comes first alphabetically (compare all three)
-- Then, determine which of the remaining two comes second
-- The third city is what's left
-
-**Alternative strategy:**
-- Use a series of if-else conditions that check all six possible orderings
-
-**Hints:**
-- Use `compareToIgnoreCase()` for case-insensitive comparison
-- Check if the result is `< 0` (first string comes before second)
-- Combine comparisons with `&&` (both conditions must be true)
-- Example: `if (city1.compareToIgnoreCase(city2) < 0 && city1.compareToIgnoreCase(city3) < 0)`
-  - This checks if city1 comes before both city2 AND city3
+Use `if-else` statements with the `compareToIgnoreCase()` method to determine which city should be printed first, second, and third. You'll need to compare pairs of cities to figure out the correct order.
 
 **Think about:**
-- How do I check if city1 comes before both city2 and city3?
-- If city1 comes first, how do I determine whether city2 or city3 comes second?
-- Can I nest an if-else inside another if-else?
-- Should I check all comparisons in one big if-else chain, or break it into smaller parts?
+- How do I check if one city comes before another alphabetically?
+- What comparisons do I need to make to determine which city comes first?
+- Once I know which city comes first, how do I figure out the order of the remaining two?
+- Should I use nested if-else statements, or a different approach?
 
 ### Example Program Flows
 
@@ -369,7 +329,7 @@ El Paso
 
 ---
 
-## 🎓 Assumptions
+## Assumptions
 
 To keep this lab focused on string comparison and sorting logic, you may assume:
 - The user enters three **different** city names (no duplicates)
